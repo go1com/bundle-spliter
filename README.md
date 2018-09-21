@@ -13,7 +13,7 @@ Bundle spliter
 
 ## Problem
 
-Our legacy system publish many messages in same queue, to consume some of there messages the consumer must consume all;
+Our legacy system publishes many messages in same queue, to consume some of these messages the consumer must consume all;
 to reduce this amount of messages to be consumed, we are trying to split them to smaller queues base on `enitity.type`.
 
 The **bundle spliter** is a tiny application that listens into some routing-keys split it into smaller bundle queues:
