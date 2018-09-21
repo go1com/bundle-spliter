@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/go1com/bundle-splitter"
+	"github.com/go1com/bundle-spliter"
 	"github.com/sirupsen/logrus"
 	"os"
 	"os/signal"
@@ -10,7 +10,7 @@ import (
 
 func main() {
 	ctx := context.Background()
-	flags := bundle_splitter.NewFlags()
+	flags := bundle_spliter.NewFlags()
 
 	// Credentials can be leaked with debug enabled.
 	if *flags.Debug {

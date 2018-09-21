@@ -1,4 +1,4 @@
-package bundle_splitter
+package bundle_spliter
 
 import (
 	"context"

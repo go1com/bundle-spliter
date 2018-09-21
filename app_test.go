@@ -1,8 +1,8 @@
-package bundle_splitter
+package bundle_spliter
 
 import (
 	"context"
-	"go1/vendor/github.com/streadway/amqp"
+	"github.com/streadway/amqp"
 	"os"
 	"syscall"
 	"testing"
@@ -16,9 +16,9 @@ func NewTestFlags() Flags {
 	f.Kind = &Kind
 	Exchange := "events"
 	f.Exchange = &Exchange
-	QueueName := "bundle-splitter"
+	QueueName := "bundle-spliter"
 	f.QueueName = &QueueName
-	ConsumerName := "bundle-splitter"
+	ConsumerName := "bundle-spliter"
 	f.ConsumerName = &ConsumerName
 	Debug := true
 	f.Debug = &Debug

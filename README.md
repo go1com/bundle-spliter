@@ -1,17 +1,17 @@
-Bundle splitter
+Bundle spliter
 ====
 
 Usage
 
-    /path/to/bundle-splitter
+    /path/to/bundle-spliter
         -url "amqp://go1:go1@127.0.0.1:5672/"
         -kind "topic"
         -exchange "events"
         -routing-keys "ro.create,ro.update,ro.delete"
-        -queue-name "ro-bundle-splitter"
-        -consumer-name "ro-bundle-splitter"
+        -queue-name "ro-bundle-spliter"
+        -consumer-name "ro-bundle-spliter"
 
-Bundle splitter is a tiny application that listens into some routing-keys split it into smaller bundle queues. Example:
+Bundle spliter is a tiny application that listens into some routing-keys split it into smaller bundle queues. Example:
 
 - Input:
     - routing key: `ro.create`

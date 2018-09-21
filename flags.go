@@ -1,4 +1,4 @@
-package bundle_splitter
+package bundle_spliter
 
 import (
 	"flag"
@@ -33,8 +33,8 @@ func NewFlags() Flags {
 	f.Kind = flag.String("kind", env("RABBITMQ_KIND", "topic"), "")
 	f.Exchange = flag.String("exchange", env("RABBITMQ_EXCHANGE", "events"), "")
 	f.RoutingKeys = flag.String("routing-keys", env("RABBITMQ_ROUTING_KEYS", "ro.create,ro.update,ro.delete"), "")
-	f.QueueName = flag.String("queue-name", env("RABBITMQ_QUEUE_NAME", "bundle-splitter"), "")
-	f.ConsumerName = flag.String("consumer-name", env("RABBITMQ_CONSUMER_NAME", "bundle-splitter"), "")
+	f.QueueName = flag.String("queue-name", env("RABBITMQ_QUEUE_NAME", "bundle-spliter"), "")
+	f.ConsumerName = flag.String("consumer-name", env("RABBITMQ_CONSUMER_NAME", "bundle-spliter"), "")
 	f.Debug = flag.Bool("debug", false, "Enable with care; credentials can be leaked if this is on.")
 	flag.Parse()
 
