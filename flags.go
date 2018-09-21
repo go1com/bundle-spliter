@@ -63,7 +63,7 @@ func (f *Flags) QueueConnection() (*amqp.Connection, error) {
 	return con, nil
 }
 
-func (f *Flags) QueueChannel(con *amqp.Connection, consumerName string) (*amqp.Channel, error) {
+func (f *Flags) QueueChannel(con *amqp.Connection) (*amqp.Channel, error) {
 	ch, err := con.Channel()
 	if nil != err {
 		return nil, err
@@ -92,12 +92,12 @@ func (f *Flags) NewApplication() (*App, error) {
 		return nil, err
 	}
 
-	read, err := f.QueueChannel(con, "")
+	read, err := f.QueueChannel(con)
 	if err != nil {
 		return nil, err
 	}
 
-	write, err := f.QueueChannel(con, "")
+	write, err := f.QueueChannel(con)
 	if err != nil {
 		return nil, err
 	}

@@ -2,6 +2,7 @@ package bundle_spliter
 
 import (
 	"context"
+	"github.com/sirupsen/logrus"
 	"github.com/streadway/amqp"
 	"os"
 	"syscall"
@@ -22,6 +23,7 @@ func NewTestFlags() Flags {
 	f.ConsumerName = &ConsumerName
 	Debug := true
 	f.Debug = &Debug
+	logrus.SetLevel(logrus.DebugLevel)
 
 	return f
 }
@@ -35,7 +37,7 @@ func TestStringBundleName(t *testing.T) {
 
 	newMessage := make(chan amqp.Delivery)
 	go func() {
-		ch, _ := flags.QueueChannel(app.con, "")
+		ch, _ := flags.QueueChannel(app.con)
 		suffix := "_" + t.Name()
 		queueName := app.queueName + suffix
 		queue, _ := ch.QueueDeclare(queueName, false, false, false, false, nil)
@@ -72,7 +74,7 @@ func TestNumericBundleName(t *testing.T) {
 
 	newMessage := make(chan amqp.Delivery)
 	go func() {
-		ch, _ := flags.QueueChannel(app.con, "")
+		ch, _ := flags.QueueChannel(app.con)
 		suffix := "_" + t.Name()
 		queueName := app.queueName + suffix
 		ch.QueuePurge(queueName, false)

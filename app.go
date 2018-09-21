@@ -75,7 +75,7 @@ func (app *App) Start(ctx context.Context, terminate <-chan os.Signal) {
 				logrus.
 					WithField("bundle", bundle).
 					WithField("body", string(msg.Body)).
-					Infoln("dispatched to", msg.RoutingKey+"."+bundle)
+					Debugln("dispatched to", msg.RoutingKey+"."+bundle)
 
 				err = app.read.Ack(msg.DeliveryTag, true)
 				if err != nil {
