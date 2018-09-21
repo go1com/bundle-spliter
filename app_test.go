@@ -77,7 +77,6 @@ func TestNumericBundleName(t *testing.T) {
 		ch, _ := flags.QueueChannel(app.con)
 		suffix := "_" + t.Name()
 		queueName := app.queueName + suffix
-		ch.QueuePurge(queueName, false)
 		queue, _ := ch.QueueDeclare(queueName, false, false, false, false, nil)
 		ch.QueueBind(queue.Name, "ro.create.111", app.exchange, true, nil)
 		messages, _ := ch.Consume(queue.Name, queue.Name, true, false, false, true, nil)
