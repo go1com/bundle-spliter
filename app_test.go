@@ -7,6 +7,7 @@ import (
 	"os"
 	"syscall"
 	"testing"
+	"time"
 )
 
 func NewTestFlags() Flags {
@@ -33,6 +34,7 @@ func TestStringBundleName(t *testing.T) {
 	flags := NewTestFlags()
 	terminate := make(chan os.Signal, 1)
 	defer func() { terminate <- syscall.SIGKILL }()
+	defer time.Sleep(2 * time.Second)
 	app, _ := flags.NewApplication()
 
 	newMessage := make(chan amqp.Delivery)
@@ -70,6 +72,7 @@ func TestNumericBundleName(t *testing.T) {
 	flags := NewTestFlags()
 	terminate := make(chan os.Signal, 1)
 	defer func() { terminate <- syscall.SIGKILL }()
+	defer time.Sleep(2 * time.Second)
 	app, _ := flags.NewApplication()
 
 	newMessage := make(chan amqp.Delivery)
